@@ -1,0 +1,1 @@
+var friendData  = require('./connection.js');
