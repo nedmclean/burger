@@ -1,15 +1,15 @@
-CREATE DATABASE burgers;
-USE burgers;
+CREATE DATABASE sausage_db;
+USE burger_db;
 
 -- Create the table plans.
-CREATE TABLE plans
+CREATE TABLE sausages
 (
 id int NOT NULL AUTO_INCREMENT,
-burger_name varchar(255) NOT NULL,
+sausage_type varchar(255) NOT NULL,
 devoured BOOLEAN,
 date TIMESTAMP,
 PRIMARY KEY (id)
 );
 
 -- Insert a set of records.
-INSERT INTO plans (plan) VALUES ('Plan to fight a ninja.');
+INSERT INTO burgers (plan) VALUES ('Plan to fight a ninja.');
