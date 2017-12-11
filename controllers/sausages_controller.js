@@ -7,7 +7,7 @@ var sausage = require("../models/sausage.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  cat.all(function(data) {
+  sausage.all(function(data) {
     var hbsObject = {
       cats: data
     };
@@ -27,12 +27,12 @@ router.post("/api/sausages", function(req, res) {
   });
 });
 
-router.put("/api/cats/:id", function(req, res) {
+router.put("/api/sausages/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
 
-  cat.update({
+  sausage.update({
     sleepy: req.body.sleepy
   }, condition, function(result) {
     if (result.changedRows == 0) {
@@ -44,7 +44,7 @@ router.put("/api/cats/:id", function(req, res) {
   });
 });
 
-router.delete("/api/cats/:id", function(req, res) {
+router.delete("/api/sausages/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   cat.delete(condition, function(result) {
@@ -57,5 +57,5 @@ router.delete("/api/cats/:id", function(req, res) {
   });
 });
 
-// Export routes for server.js to use.
+//Export routes for server.js to use.
 module.exports = router;

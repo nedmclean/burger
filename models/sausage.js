@@ -24,5 +24,6 @@ var sausage = {
   }
 };
 
-// Export the database functions for the controller (catsController.js).
-module.exports = cat;
+// Export the database functions for the controller (sausages_controller.js).
+module.exports = sausage;
+

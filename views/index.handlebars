@@ -1,35 +1,46 @@
 <h1>Daddy Would You Like Some Sausage!</h1>
 
-<p>Manage quotes with this app</p>
 
-<!-- Pass in data from server.js -->
-<ul>
-  {{#each quotes}}
-  	<li>
-  		<p><span class="label">ID:</span> {{this.id}}</p>
-      <p><span class="label">What kind of sausage was It?</span> {{this.sausage}}</p>
-      <p><span class="label">Did you eat that thang?:</span> {{this.YrN}}</p>
+<div class="row">
+  <center>
 
-      <button data-id="{{this.id}}" class="delquote">Delete</button>
+    <div class="col-md-6">
+      <h4 class="red_font">Ready to eat!</h4>
+      <div id="ready_to_eat">
 
-      <a href="/{{this.id}}"></a>
-  	</li>
-  {{/each}}
-</ul>
+    
+        {{#each sausages}}
+          {{#unless devoured}}
+          <form action="burger/eat/{{id}}" method="POST">
+            <div class="input-group">
+              <li class="form-control">{{id}}. {{sausage_type}}</li>
+                <span class="input-group-btn">
+                  <button class="btn btn-success devour-button" type="submit">Nom It!</button>
+                </span>
+            </div>
+          </form>
+          {{/unless}}
+        {{/each}}
 
-<h2>Add a Quote</h2>
+      </div>
+    </div>
 
-<form class="create-form">
+    <div class="col-md-6">
+      <h4 class="red_font">Already eaten!</h4>
+      <div id="already_eaten">
 
-  <div class="form-group">
-    <label for="auth">Author:</label>
-    <input type="text" id="auth" name="author">
-  </div>
+        {{#each sausages}}
+          {{#if this.devoured}}
+            <div class="input-group">
+              <li class="form-control">{{this.id}}. {{this.sausages_type}}</li>
+              <span class="input-group-btn">
+                <button class="btn btn-info whine-button" type="button">Yum!</button>
+              </span>
+            </div>
+          {{/if}}
+        {{/each}}
 
-  <div class="form-group">
-    <label for="quo">Quote:</label>
-    <textarea id="quo" name="quote" rows="8" cols="40"></textarea>
-  </div>
-
-  <button type="submit">Add Quote</button>
-</form>
+      </div>
+    </div>
+  </center>
+</div>

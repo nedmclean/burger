@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
+
 var app = express();
 var port = 3003;
 
@@ -31,7 +32,9 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
+var router = require("./controllers/sausages_controller.js");
 
+app.use("/", router);
 
 
 
