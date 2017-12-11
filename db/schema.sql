@@ -7,7 +7,7 @@ CREATE TABLE sausages
 id int NOT NULL AUTO_INCREMENT,
 sausage_type varchar(255) NOT NULL,
 devoured BOOLEAN,
-date TIMESTAMP,
+createdAt TIMESTAMP NOT NULL,
 PRIMARY KEY (id)
 );
 

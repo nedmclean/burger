@@ -9,7 +9,7 @@ var sausage = require("../models/sausage.js");
 router.get("/", function(req, res) {
   sausage.all(function(data) {
     var hbsObject = {
-      cats: data
+      sausages: data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
@@ -20,7 +20,7 @@ router.post("/api/sausages", function(req, res) {
   sausage.create([
     "sausage_type", "devoured"
   ], [
-    req.body.name, req.body.sleepy
+    req.body.sausage_type , req.body.devoured
   ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
@@ -33,7 +33,7 @@ router.put("/api/sausages/:id", function(req, res) {
   console.log("condition", condition);
 
   sausage.update({
-    sleepy: req.body.sleepy
+    devoured: true
   }, condition, function(result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404

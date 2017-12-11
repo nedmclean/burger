@@ -18,6 +18,7 @@ var orm = {
 
     connection.query('SELECT * FROM sausages', function (err, result) {
       if (err) throw err;
+      console.log(orm);
       cb(result);
     });
 
